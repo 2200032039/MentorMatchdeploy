@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mentor Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="flex flex-col items-center justify-center min-h-screen">
+        <div class="w-full max-w-3xl p-6 bg-white shadow-md rounded-md space-y-6">
+            <h1 class="text-4xl font-bold text-center">Welcome, <span th:text="${mentor.name}"></span>!</h1>
+
+            <div class="text-lg">
+                <p><strong>Email:</strong> <span th:text="${mentor.email}"></span></p>
+                <p><strong>Specialization:</strong> <span th:text="${mentor.specialisation}"></span></p>
+                <p><strong>Skills:</strong> <span th:text="${mentor.skills}"></span></p>
+                <p><strong>Location:</strong> <span th:text="${mentor.location}"></span></p>
+                <p><strong>Availability:</strong> <span th:text="${mentor.availability}"></span></p>
+                <p><strong>Bio:</strong> <span th:text="${mentor.bio}"></span></p>
+                <p><strong>Status:</strong> <span th:text="${mentor.status}"></span></p>
+            </div>
+
+            <h2 class="text-2xl font-semibold">Your Courses</h2>
+            <ul>
+                <li th:each="course : ${courses}">
+                    <p th:text="${course.courseName}"></p>
+                    <p th:text="${course.description}"></p>
+                </li>
+            </ul>
+            
+            <div class="text-center">
+                <a href="/mentor/update" class="text-blue-500">Update your profile</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

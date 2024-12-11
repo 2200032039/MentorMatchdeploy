@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Mentor List</title>
+    <style>
+        .mentor-card {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px;
+            width: 300px;
+            display: inline-block;
+            text-align: left;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Available Mentors</h1>
+    <div>
+        <div th:each="mentor : ${mentors}" class="mentor-card">
+            <h3 th:text="${mentor.name}">Mentor Name</h3>
+            <p><strong>Specialisation:</strong> <span th:text="${mentor.specialisation}">Specialisation</span></p>
+            <p><strong>Age:</strong> <span th:text="${mentor.age}">Age</span></p>
+            <p><strong>Skills:</strong> <span th:text="${mentor.skills}">Skills</span></p>
+            <p><strong>Bio:</strong> <span th:text="${mentor.bio}">Bio</span></p>
+            <p><strong>Availability:</strong> <span th:text="${mentor.availability}">Availability</span></p>
+            <a th:href="@{/mentor/details(id=${mentor.id})}" class="btn">Show Full Details</a>
+        </div>
+    </div>
+</body>
+</html>

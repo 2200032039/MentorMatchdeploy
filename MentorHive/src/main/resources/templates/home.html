@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MentorMatch</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .hero-bg {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        linear-gradient(135deg, #2b5876, #4ecca3);
+            background-size: cover;
+            background-position: center;
+        }
+        .about-bg {
+            background: linear-gradient(135deg, #4ecca3, #88d9e6);
+        }
+        .weoffer-bg {
+            background: linear-gradient(135deg, #88d9e6, #4ecca3);
+        }
+        .contact-bg {
+            background: linear-gradient(135deg, #4ecca3, #2b5876);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero-bg flex h-screen justify-between items-center p-10">
+        <!-- Left Side: Introductory Text -->
+        <div class="flex flex-col justify-center">
+            <div class="flex items-center mb-8">
+                <i class="fas fa-graduation-cap text-white text-2xl mr-2"></i>
+                <span class="text-white text-xl font-bold">MentorMatch</span>
+            </div>
+            <div class="text-white text-5xl font-bold mb-6">
+                Mentorship,<br>
+                Growth, and<br>
+                Success
+            </div>
+            <div class="text-white text-lg max-w-md">
+                For over a decade, MentorMatch has been dedicated to connecting aspiring individuals with experienced mentors, fostering growth, and guiding mentees toward their personal and professional goals.
+            </div>
+        </div>
+        
+        <!-- Right Side: Enlarged Vertical Buttons -->
+        <div class="flex flex-col space-y-6 mr-10">
+            <button class="bg-gray-200 text-black px-8 py-4 text-2xl font-bold rounded-full shadow-lg">
+                <a href="/mentor/login">MENTOR</a>
+            </button>
+            <button class="bg-gray-200 text-black px-8 py-4 text-2xl font-bold rounded-full shadow-lg">
+                <a href="/mentee/login">MENTEE</a>
+            </button>
+            <button class="bg-gray-200 text-black px-8 py-4 text-2xl font-bold rounded-full shadow-lg">
+                <a href="/admin/login">ADMIN</a>
+            </button>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-black bg-opacity-80 fixed top-0 left-0 w-full p-4 text-white">
+        <div class="flex space-x-8 justify-center">
+            <a href="#about" class="hover:text-lime-500 transition duration-300">About</a>
+            <a href="#weoffer" class="hover:text-lime-500 transition duration-300">What We Offer</a>
+            <a href="#contact" class="hover:text-lime-500 transition duration-300">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about" class="about-bg py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-6 text-center text-white">About Us</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <img alt="Person holding a tablet" class="w-full h-auto rounded-lg shadow-md" src="https://storage.googleapis.com/a1aa/image/3u5kzP0RenyaOCPzbVf2ATyLUvjEzynP2fRrMI6QybPXE6FnA.jpg">
+                </div>
+                <div class="md:w-1/2 md:pl-8">
+                    <p class="text-lg text-white">
+                        At MentorMatch, we believe that meaningful mentorship can transform lives. By connecting mentees with experienced mentors, we empower individuals to achieve their personal and professional aspirations.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Offer Section -->
+    <section id="weoffer" class="weoffer-bg py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-6 text-center text-white">What We Offer</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <img alt="Mentor Matching" class="w-full h-auto mb-4 rounded-lg shadow-md" src="https://storage.googleapis.com/a1aa/image/G5GenMB7Ru2DfEyUGlScvhQW23MPpd78aF9bkuNXbUOfG6FnA.jpg">
+                    <h3 class="text-xl font-bold mb-2 text-white">Mentor Matching</h3>
+                    <p class="text-white">We pair mentees with mentors who align with their goals and areas of interest, ensuring a customized growth experience.</p>
+                </div>
+                <div class="text-center">
+                    <img alt="Flexible Session Scheduling" class="w-full h-auto mb-4 rounded-lg shadow-md" src="https://storage.googleapis.com/a1aa/image/i56jkWgdMq7IEB1g9hMvYhai0XE2e6NxOJ3g54pd7EKvheiTA.jpg">
+                    <h3 class="text-xl font-bold mb-2 text-white">Flexible Session Scheduling</h3>
+                    <p class="text-white">Our scheduling tools make it easy to book mentorship sessions, fitting seamlessly into any busy lifestyle.</p>
+                </div>
+                <div class="text-center">
+                    <img alt="Progress Tracking" class="w-full h-auto mb-4 rounded-lg shadow-md" src="https://storage.googleapis.com/a1aa/image/fGYzz8uYLFzidq1seWFyTg2W4e3j0VzIKLctoWISZOMCH6FnA.jpg">
+                    <h3 class="text-xl font-bold mb-2 text-white">Progress Tracking</h3>
+                    <p class="text-white">Track goals, monitor achievements, and stay on top of personal and professional growth milestones.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="contact-bg py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-6 text-center text-white">Contact Us</h2>
+            <div class="flex flex-col items-center">
+                <p class="text-lg max-w-lg text-center text-white mb-6">
+                    Have any questions? Feel free to reach out through the form below.
+                </p>
+                <form class="w-full max-w-lg">
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full px-3">
+                            <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="name">Name</label>
+                            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none" id="name" type="text" placeholder="Your Name">
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full px-3">
+                            <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="email">Email</label>
+                            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none" id="email" type="email" placeholder="youremail@example.com">
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full px-3">
+                            <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="message">Message</label>
+                            <textarea class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none" id="message" rows="4" placeholder="Write your message here"></textarea>
+                        </div>
+                    </div>
+                    <div class="flex justify-center">
+                        <button class="bg-lime-500 text-black font-bold py-3 px-6 rounded-full" type="submit">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

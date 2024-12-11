@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mentor Registration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="flex items-center justify-center min-h-screen">
+        <div class="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold text-center mb-6">Mentor Registration</h2>
+            <form th:action="@{/mentor/register}" method="post">
+                <input type="text" name="name" placeholder="Full Name" class="block w-full p-2 border rounded-md mb-4" required>
+                <input type="date" name="dob" placeholder="Date of Birth" class="block w-full p-2 border rounded-md mb-4" required>
+                <input type="email" name="email" placeholder="Email" class="block w-full p-2 border rounded-md mb-4" required>
+                <input type="password" name="password" placeholder="Password" class="block w-full p-2 border rounded-md mb-4" required>
+                <input type="specialisation" name="specialisation" placeholder="Specialisation" class="block w-full p-2 border rounded-md mb-4" required>
+                
+                <textarea name="skills" placeholder="Skills (comma-separated)" class="block w-full p-2 border rounded-md mb-4" required></textarea>
+                <input type="location" name="location" placeholder="Location" class="block w-full p-2 border rounded-md mb-4" required>
+                <input type="availability" name="availability" placeholder="Availability" class="block w-full p-2 border rounded-md mb-4" required>
+                <input type="age" name="age" placeholder="Age" class="block w-full p-2 border rounded-md mb-4" required>
+                
+                <textarea name="bio" placeholder="Short Bio" class="block w-full p-2 border rounded-md mb-4"></textarea>
+                <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md">Register</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
+

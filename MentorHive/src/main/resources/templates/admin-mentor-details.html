@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mentor Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-blue-600 p-4 text-white">
+        <h1 class="text-2xl font-bold">Mentor Details</h1>
+        <a href="/admin/pending-mentors" class="float-right underline">Back to Pending Mentors</a>
+    </nav>
+
+    <div class="container mx-auto mt-8">
+        <div class="bg-white p-6 shadow rounded-lg">
+            <div class="flex items-center">
+                
+                <div>
+                    <h2 class="text-2xl font-bold" th:text="${mentor.name}"></h2>
+                    <p th:text="${mentor.age}"></p>
+                    <p th:text="${mentor.specialisation}"></p>
+                    <p th:text="${mentor.location}"></p>
+                    <p th:text="${mentor.skills}"></p>
+                    <p th:text="${mentor.bio}"></p>
+                    
+                    <p th:text="${mentor.availability}"></p>
+                    <p th:text="${mentor.status}"></p>
+                </div>
+            </div>
+
+            <div class="mt-6">
+                <form th:action="@{/admin/approve}" method="post">
+                    <input type="hidden" th:value="${mentor.id}" name="id" />
+                    <button type="submit" class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition">
+                        Approve
+                    </button>
+                </form>
+
+                <form th:action="@{/admin/reject}" method="post" class="mt-4">
+                    <input type="hidden" th:value="${mentor.id}" name="id" />
+                    <button type="submit" class="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600 transition">
+                        Reject
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

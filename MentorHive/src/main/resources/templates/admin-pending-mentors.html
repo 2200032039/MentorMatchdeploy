@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pending Mentors</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        .mentor-card {
+            border: 1px solid #e2e8f0; /* Light gray border */
+            background-color: #ffffff;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .mentor-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .mentor-details p {
+            color: #4a5568; /* Neutral gray for text */
+        }
+
+        .bg-monochrome {
+            background: linear-gradient(135deg, #f7fafc, #edf2f7);
+        }
+    </style>
+</head>
+<body class="bg-monochrome">
+    <!-- Navbar -->
+    <nav class="bg-blue-600 p-4 text-white shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Pending Mentors</h1>
+            <a href="/admin/dashboard" class="underline hover:text-gray-200">Back to Dashboard</a>
+        </div>
+    </nav>
+
+    <!-- Pending Mentors Section -->
+    <div class="container mx-auto mt-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Loop through each pending mentor -->
+            <div th:each="mentor : ${pendingMentorsList}" class="mentor-card rounded-lg p-6 shadow-sm">
+                <a th:href="@{/admin/mentor-details/{id}(id=${mentor.id})}">
+                    <div class="mentor-details text-center">
+                      
+                        <h3 class="text-xl font-semibold" th:text="${mentor.name}">Mentor Name</h3>
+                        <p class="text-sm mt-2 font-medium" th:text="${mentor.specialisation}">Specialisation</p>
+                        <p class="text-sm mt-1" th:text="${mentor.location}">Location</p>
+                        <p class="text-sm mt-1 italic" th:text="${mentor.bio}">Short Bio</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

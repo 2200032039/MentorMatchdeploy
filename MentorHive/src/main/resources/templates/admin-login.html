@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-image: url('https://wallpapers.com/images/high/programming-hd-nutnj7cgiprbs1j2.webp');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen">
+    <header class="w-full flex justify-between items-center p-4 bg-white">
+        <div class="flex items-center">
+            <i class="fas fa-graduation-cap text-2xl"></i>
+            <span class="ml-2 text-xl font-bold">MentorMatch</span>
+        </div>
+    </header>
+    <main class="flex items-center justify-center flex-grow">
+        <form th:action="@{/admin/login}" method="post" class="w-full max-w-md bg-white p-8 shadow-lg rounded">
+            <h2 class="text-2xl font-bold mb-6 text-center">Admin Login</h2>
+            <div class="mb-4">
+                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                <input type="text" name="email" id="email" class="mt-1 w-full px-4 py-2 border rounded-md" required>
+            </div>
+            <div class="mb-4">
+                <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" name="password" id="password" class="mt-1 w-full px-4 py-2 border rounded-md" required>
+            </div>
+            <button type="submit" class="w-full py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600">Login</button>
+        </form>
+    </main>
+    <footer class="w-full text-center py-4 bg-white">
+        <p class="text-xs">&copy; 2024 mentormatch.com All rights reserved.</p>
+    </footer>
+</body>
+</html>

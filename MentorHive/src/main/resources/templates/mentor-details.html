@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Mentor Details</title>
+    <style>
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            text-align: left;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 10px 5px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .btn-save {
+            background-color: #28a745;
+        }
+        .btn-choose {
+            background-color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 th:text="${mentor.name}">Mentor Name</h1>
+        <p><strong>Email:</strong> <span th:text="${mentor.email}">Email</span></p>
+        <p><strong>Specialisation:</strong> <span th:text="${mentor.specialisation}">Specialisation</span></p>
+        <p><strong>Age:</strong> <span th:text="${mentor.age}">Age</span></p>
+        <p><strong>Location:</strong> <span th:text="${mentor.location}">Location</span></p>
+        <p><strong>Skills:</strong> <span th:text="${mentor.skills}">Skills</span></p>
+        <p><strong>Bio:</strong> <span th:text="${mentor.bio}">Bio</span></p>
+        <p><strong>Availability:</strong> <span th:text="${mentor.availability}">Availability</span></p>
+
+        <!-- Display Choose Mentor button only if mentor has availability -->
+        <div th:if="${mentor.availability > 0}">
+            <a th:href="@{/mentee/chooseMentor/{mentorId}(mentorId=${mentor.id})}" class="btn btn-choose">Choose Mentor</a>
+        </div>
+
+        <!-- Always display Save Mentor button -->
+        <a th:href="@{/mentee/saveMentor/{mentorId}(mentorId=${mentor.id})}" class="btn btn-save">Save Mentor</a>
+    </div>
+</body>
+</html>

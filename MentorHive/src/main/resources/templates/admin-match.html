@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mentor-Mentee Matching</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Header -->
+    <div class="bg-blue-600 text-white p-6">
+        <h1 class="text-3xl font-bold text-center">Mentor-Mentee Matching</h1>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mx-auto mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 px-6">
+        <!-- Available Mentors Section -->
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <h2 class="text-2xl font-semibold text-gray-800 border-b pb-2 mb-4">Available Mentors</h2>
+            <ul>
+                <li 
+                    class="mb-4 p-4 border rounded-lg bg-gray-50 hover:bg-gray-100 transition"
+                    th:each="mentor : ${availableMentors}">
+                    <p class="text-lg font-bold" th:text="${mentor.name}"></p>
+                    <p class="text-gray-600">Available Slots: <span th:text="${mentor.availability}"></span></p>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Unassigned Mentees Section -->
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <h2 class="text-2xl font-semibold text-gray-800 border-b pb-2 mb-4">Unassigned Mentees</h2>
+            <ul>
+                <li 
+                    class="mb-4 p-4 border rounded-lg bg-gray-50 hover:bg-gray-100 transition"
+                    th:each="mentee : ${unassignedMentees}">
+                    <p class="text-lg font-bold" th:text="${mentee.name}"></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Assignment Form -->
+    <div class="container mx-auto mt-8 p-6 bg-white shadow-md rounded-lg">
+        <h2 class="text-2xl font-semibold text-gray-800 border-b pb-2 mb-4">Assign Mentor to Mentee</h2>
+        <form th:action="@{/admin/assign}" method="post" class="space-y-4">
+            <!-- Mentee Selection -->
+            <div>
+                <label for="mentee" class="block text-gray-700 font-medium mb-2">Select Mentee</label>
+                <select name="menteeId" id="mentee" 
+                    class="w-full p-2 border rounded-lg bg-gray-50 focus:outline-none focus:ring focus:ring-blue-300">
+                    <option th:each="mentee : ${unassignedMentees}" 
+                        th:value="${mentee.id}" th:text="${mentee.name}">
+                    </option>
+                </select>
+            </div>
+
+            <!-- Mentor Selection -->
+            <div>
+                <label for="mentor" class="block text-gray-700 font-medium mb-2">Select Mentor</label>
+                <select name="mentorId" id="mentor" 
+                    class="w-full p-2 border rounded-lg bg-gray-50 focus:outline-none focus:ring focus:ring-blue-300">
+                    <option th:each="mentor : ${availableMentors}" 
+                        th:value="${mentor.id}" th:text="${mentor.name}">
+                    </option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" 
+                class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg font-bold hover:bg-blue-700 transition">
+                Assign
+            </button>
+        </form>
+    </div>
+</body>
+</html>
